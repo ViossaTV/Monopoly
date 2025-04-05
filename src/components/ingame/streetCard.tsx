@@ -131,40 +131,64 @@ function StreetCard({ args }: { args: StreetDisplayInfo }) {
     );
 }
 
-function RailroadCard({ args }: { args: RailroadDisplayInfo }) {
+function StreetCard({ args }: { args: StreetDisplayInfo }) {
+    const _color = translateGroup(args.group);
     return (
         <div className="street-card">
-            <div data-clear>
-                <img
-                    data-type="rail"
-                    src={RailIcon.replace("/public", "")}
-                    alt=""
-                />
+            <div style={{ backgroundColor: _color }}>
+                <p>Lantharting</p>
                 <h3>{args.title}</h3>
             </div>
             <div>
                 <ol>
                     <li>
-                        <p>Rent</p>
-                        <p>{25}M</p>
+                        <p>Mbogo</p>
+                        <p>{args.rent} Ipni</p>
                     </li>
                     <li>
-                        <p>If 2 stations are owned</p>
-                        <p>{50}M</p>
+                        <p>Mbogo med fargekaban</p>
+                        <p>{args.rentWithColorSet} Ipni</p>
                     </li>
                     <li>
-                        <p>If 3 stations are owned</p>
-                        <p>{100}M</p>
+                        <p>Mbogo med 1 huomi</p>
+                        <p>{args.multpliedrent[0]} Ipni</p>
                     </li>
                     <li>
-                        <p>If 4 stations are owned</p>
-                        <p>{200}M</p>
+                        <p>Mbogo med 2 huomi</p>
+                        <p>{args.multpliedrent[1]} Ipni</p>
+                    </li>
+                    <li>
+                        <p>Mbogo med 3 huomi</p>
+                        <p>{args.multpliedrent[2]} Ipni</p>
+                    </li>
+                    <li>
+                        <p>Mbogo med 4 huomi</p>
+                        <p>{args.multpliedrent[3]} Ipni</p>
+                    </li>
+                    <li>
+                        <p>Rent med mbogohuomi</p>
+                        <p>{args.multpliedrent[4]} Ipni</p>
                     </li>
                 </ol>
-                <h4>mortgage Value 100M</h4>
                 <hr />
+                <ol>
+                    <li>
+                        <p>Kerras fu huomi</p>
+                        <p>{args.housesCost} Ipni each</p>
+                    </li>
+                    <li>
+                        <p>Kerras fu mbogohuomi</p>
+                        <label>
+                            {args.hotelsCost} Ipni each
+                            <br />
+                            <p style={{ fontSize: 12 }}>(au 4 huomi)</p>
+                        </label>
+                    </li>
+                </ol>
+
                 <br />
-                <h4>{args.cardCost}M</h4>
+                <hr />
+                <h4>{args.cardCost} ipni</h4>
             </div>
         </div>
     );
